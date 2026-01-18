@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import News from "./components/News";
+import Header from "./layout/Header";
+import SideBar from "./layout/SideBar";
+import CalendarItem from "./components/CalendarItem";
+import BarChart from "./components/Chart";
 
 function App() {
   // inputが2個あるので、入力したものを保持するためにuseStateが2つ必要
@@ -30,7 +35,13 @@ function App() {
   return (
     <>
       {/*  */}
+      <Header />
+      <BrowserRouter>
+        <SideBar />
+      </BrowserRouter>
       <News />
+      <CalendarItem />
+      <BarChart />
       <div>
         <p>名前が入ります</p>
         <input

@@ -1,0 +1,28 @@
+.sideBar {
+  background: #fff;
+  border-right: 1px solid #333;
+  height: 100vh;
+  padding: 10px;
+
+  .menu {
+    padding: 10px;
+
+    li {
+      margin: 25px 0;
+
+      a {
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+        display: block;
+        padding-bottom: 20px;
+
+        &:hover {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+}
