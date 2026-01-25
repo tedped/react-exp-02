@@ -1,0 +1,17 @@
+.notfound {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  a {
+    display: block;
+    margin: 20px 0;
+    color: #000;
+
+    &:hover {
+      opacity: 0.3;
+    }
+  }
+}

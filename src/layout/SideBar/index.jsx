@@ -13,6 +13,9 @@ const SideBar = () => {
           <Link to="/customer">顧客リスト</Link>
         </li>
         <li>
+          <Link to="/orders">注文管理</Link>
+        </li>
+        <li>
           <Link to="/chart">チャート</Link>
         </li>
         <li>
