@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
@@ -6,60 +5,23 @@ import CustomerList from "./pages/customer";
 import Orders from "./pages/orders";
 import Chart from "./pages/chart";
 import NotFound from "./pages/notfound";
+// 1.別ファイルで切り出したカスタムフックを呼び出すにはimportで書かないといけません
+import { useForm } from "./hooks/useForm";
 
 function App() {
-  // inputが2個あるので、入力したものを保持するためにuseStateが2つ必要
-  const [name, setName] = useState("名前入力");
-  const [email, setEmail] = useState("メールアドレス入力");
-  //APIのデータを表示するときは 必ず配列
-  const [data, setData] = useState([]);
-
-  // イベント処理=クリックしたら〜する、マウスを動かしたら〜する、マウスが離れたら〜する、・・・
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    // console.log(e);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-    // console.log(e);
-  };
-
-  useEffect(() => {
-    //この中に書きます
-    console.log("順番2");
-
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/todos",
-        );
-        console.log(response, "response");
-        //jsonに変換
-        const data = await response.json();
-        console.log(data, "中身");
-        //取得したjsのデータをuseStateの更新処理で上書きする
-        setData(data);
-      } catch (error) {}
-
-      // おまじないの処理の終わり、下は消さない
-    };
-    fetchData();
-
-    //この下は消さない
-  }, []);
-
-  console.log("順番1");
+  // 2.カスタムフックで切り出した処理を呼び出す
+  const { handleNameChange, handleEmailChange, name, email, data } = useForm();
 
   return (
     <>
       {/* データを表示する方法「map」 */}
-      {data.map((item) => (
-        <div>
+      {/* {data.map((item, index) => (
+        <div key={index}>
           <p>{item.id}</p>
           <p>{item.title}</p>
           <p>{item.userId}</p>
         </div>
-      ))}
+      ))} */}
 
       {/*  */}
       <Router>
